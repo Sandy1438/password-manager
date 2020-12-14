@@ -24,7 +24,7 @@ pipeline {
 			}
 	    steps {
             script {
-                sh 'docker build . -t sandy1439/password-manager:$Docker_tag'
+                sh 'docker build . -t <add your docker hub repo here >:$Docker_tag'
                 withCredentials([string(credentialsId: 'docker_password', variable: 'docker_password')]) {
                     sh 'docker login -u <docker-user-name> -p $docker_password'
                     sh 'docker push <docker-repository>:$Docker_tag'
